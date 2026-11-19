@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nodo28 | Técnico Informático en Sabadell y Sistemas en Remoto</title>
+  <meta
+    name="description"
+    content="Nodo28: reparación de ordenadores, hardware y montaje a medida en Sabadell (Carrer de la Llanera, 28) y administración de sistemas en remoto para autónomos y pymes."
+  />
+  <meta name="theme-color" content="#0b1220" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <header class="site-header" id="inicio">
+    <div class="container nav-container">
+      <a href="#inicio" class="brand" aria-label="Nodo28 Inicio">
+        <svg class="brand-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect width="36" height="36" rx="9" fill="url(#nodoGrad)" />
+          <circle cx="11" cy="18" r="3" fill="#ffffff" />
+          <circle cx="25" cy="11" r="3" fill="#ffffff" />
+          <circle cx="25" cy="25" r="3" fill="#38bdf8" />
+          <path d="M13.6 16.7L22.4 12.3M13.6 19.3L22.4 23.7" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+          <defs>
+            <linearGradient id="nodoGrad" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#2563eb" />
+              <stop offset="1" stop-color="#0f172a" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="brand-text">Nodo<strong>28</strong></span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="navMenu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#servicios">Servicios</a>
+        <a href="#como-trabajamos">Cómo trabajamos</a>
+        <a href="#tarifas">Tarifas</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="#contacto" class="btn btn-sm btn-primary">Contactar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="badge">
+            <span class="badge-dot"></span>
+            Sabadell (C/ de la Llanera, 28) &middot; Soporte Remoto
+          </div>
+          <h1>
+            Tu técnico informático en Sabadell y administrador de sistemas en remoto
+          </h1>
+          <p class="hero-subtitle">
+            Soluciones rápidas y sin tecnicismos para <strong>particulares</strong> y
+            <strong>autónomos</strong>. Reparación y mejora de hardware en taller, más
+            mantenimiento de sistemas, copias de seguridad y soporte remoto donde estés.
+          </p>
+          <div class="hero-actions">
+            <a
+              href="https://wa.me/34637663537?text=Hola%20Nodo28%2C%20necesito%20ayuda%20con..."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-whatsapp"
+            >
+              Escribir por WhatsApp
+            </a>
+            <a href="#servicios" class="btn btn-outline">Ver servicios</a>
+          </div>
+          <ul class="hero-highlights">
+            <li>Diagnóstico claro antes de reparar</li>
+            <li>Atención presencial con cita en Sabadell</li>
+            <li>Soporte remoto seguro para autónomos</li>
+          </ul>
+        </div>
+
+        <aside class="hero-card" aria-label="Resumen de atención">
+          <div class="hero-card-header">
+            <span class="status-pill">Disponible hoy</span>
+            <span class="card-tag">Nodo28 IT</span>
+          </div>
+          <h2>¿Qué necesitas resolver?</h2>
+          <div class="quick-list">
+            <a href="#particulares" class="quick-item">
+              <div>
+                <strong>Mi ordenador va lento o no enciende</strong>
+                <span>Hardware, SSD, limpieza y formateo en Sabadell</span>
+              </div>
+              <span class="arrow">&rarr;</span>
+            </a>
+            <a href="#autonomos" class="quick-item">
+              <div>
+                <strong>Soy autónomo y necesito soporte IT</strong>
+                <span>Sistemas, correo profesional, backups y remoto</span>
+              </div>
+              <span class="arrow">&rarr;</span>
+            </a>
+            <a href="#ubicacion" class="quick-item">
+              <div>
+                <strong>Taller en Carrer de la Llanera, 28</strong>
+                <span>Sabadell · Atención personalizada</span>
+              </div>
+              <span class="arrow">&rarr;</span>
+            </a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Servicios -->
+    <section class="section" id="servicios">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Servicios</span>
+          <h2>Dos áreas pensadas para cada necesidad</h2>
+          <p>
+            Combinamos taller físico para hardware en Sabadell con administración de sistemas en
+            remoto para que no pierdas horas de trabajo ni datos importantes.
+          </p>
+        </div>
+
+        <div class="services-split">
+          <!-- Particulares -->
+          <article class="service-column" id="particulares">
+            <div class="column-head">
+              <span class="pill pill-blue">Presencial · Sabadell</span>
+              <h3>Para Particulares</h3>
+              <p>Reparación, puesta a punto y montaje de equipos en Carrer de la Llanera, 28.</p>
+            </div>
+            <ul class="service-list">
+              <li>
+                <strong>Reparación de PC y portátiles</strong>
+                <span>Diagnóstico de fallos de hardware, pantallas, teclados, baterías y cargadores.</span>
+              </li>
+              <li>
+                <strong>Aceleración y ampliación (SSD / RAM)</strong>
+                <span>Dale una segunda vida a tu equipo lento ampliando memoria o pasando a disco SSD.</span>
+              </li>
+              <li>
+                <strong>Limpieza interna y pasta térmica</strong>
+                <span>Adiós al ruido excesivo y sobrecalentamiento en portátiles y sobremesas.</span>
+              </li>
+              <li>
+                <strong>Formateo, virus y recuperación básica</strong>
+                <span>Instalación limpia de Windows/Linux, copias previas y eliminación de malware.</span>
+              </li>
+              <li>
+                <strong>Montaje de PCs a medida</strong>
+                <span>Asesoramiento según tu presupuesto para gaming, estudios, diseño u oficina.</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Autónomos -->
+          <article class="service-column service-column-accent" id="autonomos">
+            <div class="column-head">
+              <span class="pill pill-cyan">Remoto y Presencial</span>
+              <h3>Para Autónomos y Pymes</h3>
+              <p>Administración de sistemas y soporte continuo para trabajar sin interrupciones.</p>
+            </div>
+            <ul class="service-list">
+              <li>
+                <strong>Soporte técnico remoto ágil</strong>
+                <span>Resolución de incidencias en minutos por conexión segura sin desplazamientos.</span>
+              </li>
+              <li>
+                <strong>Microsoft 365, Google Workspace y dominios</strong>
+                <span>Configuración de correo profesional, DNS, migraciones y gestión de cuentas.</span>
+              </li>
+              <li>
+                <strong>Copias de seguridad automáticas (3-2-1)</strong>
+                <span>Protege tu facturación y archivos frente a fallos de disco o ransomware.</span>
+              </li>
+              <li>
+                <strong>Redes, Wi-Fi de oficina, NAS y servidores</strong>
+                <span>Puesta en marcha y mantenimiento de Linux, Windows Server y almacenamiento en red.</span>
+              </li>
+              <li>
+                <strong>Ciberseguridad y mantenimiento preventivo</strong>
+                <span>Actualizaciones, control de accesos, doble factor (2FA) y revisión periódica.</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cómo trabajamos -->
+    <section class="section section-alt" id="como-trabajamos">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Proceso</span>
+          <h2>Simple, transparente y sin sorpresas</h2>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-num">01</span>
+            <h3>Cuéntanos qué ocurre</h3>
+            <p>
+              Escríbenos por WhatsApp o mediante el formulario explicando brevemente tu problema o
+              lo que necesitas montar.
+            </p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">02</span>
+            <h3>Diagnóstico y presupuesto</h3>
+            <p>
+              Valoramos el caso en remoto o en nuestro punto de Sabadell y te damos un presupuesto
+              claro antes de tocar nada.
+            </p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">03</span>
+            <h3>Solución y seguimiento</h3>
+            <p>
+              Dejamos tu equipo o sistema funcionando al 100%, con recomendaciones prácticas para que
+              no vuelva a fallar.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tarifas orientativas -->
+    <section class="section" id="tarifas">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Tarifas orientativas</span>
+          <h2>Precios claros desde el primer día</h2>
+          <p>
+            El presupuesto final se confirma siempre tras revisar tu equipo o necesidad concreta.
+          </p>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card">
+            <span class="price-tag">Particulares</span>
+            <h3>Puesta a punto</h3>
+            <p class="price">Desde <strong>35 €</strong></p>
+            <ul>
+              <li>Limpieza interna y pasta térmica</li>
+              <li>Revisión de temperaturas y disco</li>
+              <li>Optimización básica del sistema</li>
+            </ul>
+            <a href="#contacto" class="btn btn-outline btn-full">Solicitar cita</a>
+          </article>
+
+          <article class="price-card price-card-featured">
+            <span class="price-tag">Autónomos</span>
+            <h3>Soporte Remoto</h3>
+            <p class="price">Desde <strong>40 €/h</strong></p>
+            <ul>
+              <li>Asistencia remota prioritaria</li>
+              <li>Correo profesional, M365 y backups</li>
+              <li>Opción de bono mensual a medida</li>
+            </ul>
+            <a href="#contacto" class="btn btn-primary btn-full">Consultar bono</a>
+          </article>
+
+          <article class="price-card">
+            <span class="price-tag">Hardware</span>
+            <h3>Montaje / Mejora PC</h3>
+            <p class="price">Desde <strong>45 €</strong></p>
+            <ul>
+              <li>Asesoramiento de componentes</li>
+              <li>Montaje limpio y gestión de cables</li>
+              <li>Instalación de SO y drivers</li>
+            </ul>
+            <a href="#contacto" class="btn btn-outline btn-full">Pedir presupuesto</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ubicación y Redes -->
+    <section class="section section-alt" id="ubicacion">
+      <div class="container location-grid">
+        <div class="location-info">
+          <span class="section-kicker">Dónde estamos</span>
+          <h2>En Sabadell para hardware, en cualquier lugar en remoto</h2>
+          <p>
+            Para entregas y recogidas de equipos atendemos en Sabadell. Si prefieres asegurar
+            disponibilidad inmediata, escríbenos antes por WhatsApp.
+          </p>
+
+          <div class="info-cards">
+            <div class="info-item">
+              <strong>Dirección física</strong>
+              <span>Carrer de la Llanera, 28 · 08202 Sabadell (Barcelona)</span>
+            </div>
+            <div class="info-item">
+              <strong>Horario orientativo</strong>
+              <span>Lunes a Viernes: 09:30 – 13:30 y 16:30 – 20:00 (cita previa recomendada)</span>
+            </div>
+            <div class="info-item">
+              <strong>Soporte remoto</strong>
+              <span>Toda España · Lunes a Viernes (urgencias a consultar)</span>
+            </div>
+          </div>
+
+          <div class="location-actions">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Carrer+de+la+Llanera+28+Sabadell"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+            >
+              Abrir en Google Maps
+            </a>
+            <div class="social-links" aria-label="Redes sociales">
+              <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-box">
+          <div class="map-placeholder">
+            <span class="map-pin">📍</span>
+            <h3>Nodo28 · Sabadell</h3>
+            <p>Carrer de la Llanera, 28</p>
+            <p class="map-note">
+              Zona Centre / Creu Alta · Fácil acceso a pie y en transporte público.
+            </p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Carrer+de+la+Llanera+28+Sabadell"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-sm btn-outline"
+            >
+              Cómo llegar
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="section" id="contacto">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <span class="section-kicker">Contacto</span>
+          <h2>¿Hablamos de tu equipo o empresa?</h2>
+          <p>
+            Cuéntanos qué necesitas y te responderemos lo antes posible. Atendemos
+            <strong>únicamente por WhatsApp y correo electrónico</strong> (no atendemos llamadas),
+            para poder darte una respuesta rápida y dejar todo por escrito.
+          </p>
+          <ul class="contact-direct">
+            <li>
+              <strong>WhatsApp (solo mensajes):</strong>
+              <a
+                href="https://wa.me/34637663537?text=Hola%20Nodo28%2C%20necesito%20ayuda%20con..."
+                target="_blank"
+                rel="noopener noreferrer"
+              >+34 637 663 537</a>
+            </li>
+            <li><strong>Email:</strong> <a href="mailto:nodo28@proton.me">nodo28@proton.me</a></li>
+            <li><strong>Dirección:</strong> Carrer de la Llanera, 28, Sabadell</li>
+          </ul>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre o empresa" required />
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-row">
+              <label for="perfil">Soy...</label>
+              <select id="perfil" name="perfil">
+                <option value="Particular">Particular</option>
+                <option value="Autónomo / Pyme">Autónomo / Pyme</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="modalidad">Modalidad</label>
+              <select id="modalidad" name="modalidad">
+                <option value="Presencial (Sabadell)">Presencial (Sabadell)</option>
+                <option value="Soporte remoto">Soporte remoto</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="telefono">Tu WhatsApp o Email</label>
+            <input
+              type="text"
+              id="telefono"
+              name="telefono"
+              placeholder="Ej. 600 000 000 o correo@ejemplo.com"
+              required
+            />
+          </div>
+
+          <div class="form-row">
+            <label for="mensaje">¿En qué te puedo ayudar?</label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              rows="4"
+              placeholder="Ej. Mi portátil se calienta mucho / Necesito copias de seguridad para mi gestoría..."
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full">Enviar consulta por WhatsApp</button>
+          <p class="form-feedback" id="formFeedback" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Nodo28</strong> &middot; Técnico Informático y Administración de Sistemas
+        <p class="footer-sub">Carrer de la Llanera, 28, Sabadell · Soporte remoto</p>
+      </div>
+      <div class="footer-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#tarifas">Tarifas</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
