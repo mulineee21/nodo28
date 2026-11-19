@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Nodo28 — Pide cita previa (9:16)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b1220;
+      --surface: #16223b;
+      --text: #f1f5f9;
+      --primary: #3b82f6;
+      --accent: #38bdf8;
+      --wa: #22c55e;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #000;
+      font-family: 'Anton', 'Impact', sans-serif;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #stage {
+      position: relative;
+      height: min(100vh, 177.78vw);
+      aspect-ratio: 9 / 16;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text);
+      container-type: size;
+    }
+    .sc {
+      position: absolute;
+      inset: 0;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6cqw;
+      gap: 2.4cqh;
+      text-transform: uppercase;
+      overflow: hidden;
+      background: radial-gradient(ellipse at 50% 42%, #1e3a8a 0%, #0f172a 55%, #0b1220 100%);
+    }
+    .sc.on {
+      display: flex;
+      animation: snap .28s cubic-bezier(.2, 1, .3, 1) both;
+    }
+    @keyframes snap {
+      from { transform: scale(1.12); opacity: 0; }
+      to { transform: none; opacity: 1; }
+    }
+    .frame {
+      position: absolute;
+      inset: 3cqw;
+      border: .4cqw solid rgba(56, 189, 248, .35);
+      pointer-events: none;
+    }
+    .top {
+      position: absolute;
+      top: 6cqh;
+      left: 7cqw;
+      height: .7cqw;
+      background: var(--accent);
+      width: 0;
+      border-radius: 1cqw;
+    }
+    .on .top { animation: tw .5s forwards; }
+    @keyframes tw { to { width: 86cqw; } }
+    .w {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(8cqh) scale(1.5) rotate(var(--rot, 0deg));
+    }
+    .w.k {
+      display: block;
+      width: max-content;
+      max-width: none;
+      white-space: nowrap;
+      line-height: .92;
+    }
+    .on .w {
+      animation: slam .38s cubic-bezier(.2, 1.5, .4, 1) forwards, punch .35s calc(6s + var(--p, 0s)) cubic-bezier(.2, 1.6, .4, 1);
+      animation-delay: var(--d, 0s), calc(6s + var(--p, 0s));
+    }
+    @keyframes slam {
+      60% { opacity: 1; transform: scale(.94) rotate(0); }
+      to { opacity: 1; transform: none; }
+    }
+    @keyframes punch {
+      0% { transform: translateX(var(--j, 3cqw)) scale(1.05); }
+      100% { transform: none; }
+    }
+    .ln {
+      height: 1.6cqw;
+      background: var(--accent);
+      width: 0;
+      border-radius: 1cqw;
+    }
+    .on .ln { animation: lw .5s 1.4s cubic-bezier(.5, 0, .2, 1) forwards; }
+    @keyframes lw { to { width: 60cqw; } }
+    .arr {
+      width: 20cqw;
+      height: 24cqw;
+      clip-path: inset(0 0 100% 0);
+    }
+    .on .arr { animation: wipe .5s 2s cubic-bezier(.5, 0, .2, 1) forwards; }
+    @keyframes wipe { to { clip-path: inset(0 0 0 0); } }
+    .arr svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      fill: var(--accent);
+    }
+    .on .arr svg { animation: bob .6s 2.6s cubic-bezier(.4, 0, .6, 1) infinite alternate; }
+    @keyframes bob { to { transform: translateY(3cqw); } }
+    .btn {
+      position: relative;
+      overflow: hidden;
+      width: 88cqw;
+      background: var(--wa);
+      color: #052e16;
+      border-radius: 5cqw;
+      padding: 3.2cqh 0;
+      box-shadow: 2cqw 2cqw 0 var(--bg), 0 0 4cqw rgba(34, 197, 94, .45);
+      opacity: 0;
+      transform: rotate(-2deg) scale(0);
+    }
+    .on .btn {
+      animation: bp .5s 2.8s cubic-bezier(.2, 1.7, .4, 1) forwards, glow 1.1s 3.3s ease-in-out infinite alternate;
+    }
+    @keyframes bp { to { opacity: 1; transform: rotate(-2deg) scale(1); } }
+    @keyframes glow {
+      to { box-shadow: 2cqw 2cqw 0 var(--bg), 0 0 10cqw 1cqw rgba(34, 197, 94, .85); }
+    }
+    .btn::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 18cqw;
+      left: -25cqw;
+      background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .45), transparent);
+      transform: skewX(-14deg);
+    }
+    .on .btn::after { animation: sh 1.8s 3.8s ease-in-out infinite; }
+    @keyframes sh { 0% { left: -25cqw; } 45%, 100% { left: 115cqw; } }
+    .lc {
+      text-transform: none;
+      letter-spacing: .01em;
+      white-space: nowrap;
+      display: inline-block;
+    }
+    .pill {
+      width: max-content;
+      border: .8cqw solid var(--accent);
+      color: var(--text);
+      border-radius: 100cqw;
+      padding: 1.4cqh 6cqw;
+      opacity: 0;
+    }
+    .on .pill { animation: slam .4s 3.7s cubic-bezier(.2, 1.5, .4, 1) forwards; }
+    .sub-note {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 4.5cqw;
+      color: #94a3b8;
+      letter-spacing: .06em;
+      opacity: 0;
+    }
+    .on .sub-note { animation: slam .4s 4.2s cubic-bezier(.2, 1.5, .4, 1) forwards; }
+    .flash {
+      position: absolute;
+      inset: 0;
+      background: var(--accent);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .on .flash { animation: fl .12s 0s, fl .12s .4s, fl .12s .75s, fl .12s 6s, fl .12s 6.2s, fl .12s 6.4s; }
+    @keyframes fl { from { opacity: .14; } to { opacity: 0; } }
+    #go {
+      position: absolute;
+      inset: 0;
+      z-index: 9;
+      background: rgba(11, 18, 32, .88);
+      color: #fff;
+      border: 0;
+      font: inherit;
+      font-size: 9cqw;
+      cursor: pointer;
+    }
+    #bar {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 1.2cqh;
+      background: var(--accent);
+      width: 0;
+      z-index: 5;
+    }
+  </style>
+</head>
+<body>
+  <div id="stage">
+    <div class="sc" id="s0">
+      <div class="frame"></div>
+      <div class="flash"></div>
+      <div class="top"></div>
+      <div>
+        <span class="w k fit" data-w="86" style="--d:.1s;--rot:-4deg;--p:0s;--j:3cqw">¿Tu PC o empresa</span>
+        <span class="w k fit" data-w="86" style="--d:.45s;--rot:3deg;--p:.2s;--j:-3cqw;color:var(--accent)">necesita ayuda</span>
+        <span class="w k fit" data-w="86" style="--d:.8s;--rot:-3deg;--p:.4s;--j:3cqw">técnica?</span>
+      </div>
+      <div class="ln"></div>
+      <div class="arr"><svg viewBox="0 0 100 120"><path d="M34 0H66V62H100L50 120L0 62H34Z"/></svg></div>
+      <div class="btn"><span class="lc fit" data-w="76">WhatsApp: 637 663 537</span></div>
+      <div class="pill"><span class="lc fit" data-w="62">nodo28@proton.me</span></div>
+      <div class="sub-note">Solo cita previa · Sin llamadas · Sabadell y remoto</div>
+    </div>
+    <div id="bar"></div>
+    <button id="go">▶ Reproduir</button>
+  </div>
+  <script>
+    const stage = document.getElementById('stage'),
+      S = [...document.querySelectorAll('.sc')],
+      bar = document.getElementById('bar'),
+      go = document.getElementById('go');
+    function fit() {
+      const sw = stage.clientWidth;
+      document.querySelectorAll('.fit').forEach((e) => {
+        e.style.fontSize = '100px';
+        const w = e.offsetWidth;
+        if (!w) return;
+        e.style.fontSize = ((100 * sw * parseFloat(e.dataset.w)) / 100 / w / sw) * 100 + 'cqw';
+      });
+    }
+    function show(i) {
+      S.forEach((s, j) => {
+        s.classList.remove('on');
+        if (j === i) {
+          void s.offsetWidth;
+          s.classList.add('on');
+          fit();
+        }
+      });
+    }
+    function play() {
+      go.style.display = 'none';
+      const t0 = performance.now();
+      let cur = -1;
+      (function tick() {
+        const t = (performance.now() - t0) / 1000;
+        if (cur < 0) {
+          cur = 0;
+          show(0);
+        }
+        bar.style.width = Math.min(100, t * 10) + '%';
+        if (t < 10) requestAnimationFrame(tick);
+        else {
+          go.style.display = '';
+          go.innerHTML = '↻ Repetir';
+        }
+      })();
+    }
+    go.onclick = play;
+    addEventListener('resize', fit);
+  </script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>¿Qué es Nodo28? (9:16)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b1220;
+      --bg-soft: #111a2e;
+      --surface: #16223b;
+      --text: #f1f5f9;
+      --primary: #3b82f6;
+      --accent: #38bdf8;
+      --wa: #22c55e;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #000;
+      font-family: 'Anton', 'Impact', sans-serif;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #stage {
+      position: relative;
+      height: min(100vh, 177.78vw);
+      aspect-ratio: 9 / 16;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text);
+      container-type: size;
+    }
+    .sc {
+      position: absolute;
+      inset: 0;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6cqw;
+      gap: 2.5cqh;
+      text-transform: uppercase;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.22), transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(56, 189, 248, 0.16), transparent 50%),
+        var(--bg);
+    }
+    .sc.on {
+      display: flex;
+      animation: snap .28s cubic-bezier(.2, 1, .3, 1) both;
+    }
+    @keyframes snap {
+      from { transform: scale(1.12); opacity: 0; }
+      to { transform: none; opacity: 1; }
+    }
+    .sc-blue {
+      background: linear-gradient(155deg, #1d4ed8 0%, #0f172a 100%);
+    }
+    .sc-surf {
+      background: var(--surface);
+    }
+    .sm {
+      font-size: 5.4cqw;
+      letter-spacing: .14em;
+      font-family: 'Archivo Black', sans-serif;
+      color: var(--accent);
+    }
+    .k {
+      font-size: 18cqw;
+      line-height: .92;
+      display: block;
+    }
+    .k2 {
+      font-size: 13.5cqw;
+      line-height: .96;
+      display: block;
+    }
+    .cyan { color: var(--accent); }
+    .blue { color: var(--primary); }
+    .green { color: var(--wa); }
+    .w {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(8cqh) scale(1.5) rotate(var(--rot, 0deg));
+    }
+    .w.k, .w.k2 { display: block; }
+    .on .w {
+      animation: slam .38s cubic-bezier(.2, 1.5, .4, 1) forwards;
+      animation-delay: var(--d, 0s);
+    }
+    @keyframes slam {
+      60% { opacity: 1; transform: scale(.94) rotate(0); }
+      to { opacity: 1; transform: none; }
+    }
+    .ln {
+      height: 1.4cqw;
+      background: var(--accent);
+      width: 0;
+      border-radius: 1cqw;
+    }
+    .on .ln {
+      animation: lw .5s .9s cubic-bezier(.5, 0, .2, 1) forwards;
+    }
+    @keyframes lw { to { width: 60cqw; } }
+    .band {
+      position: absolute;
+      left: -10%;
+      width: 120%;
+      height: 7cqh;
+      background: var(--primary);
+      opacity: .28;
+      transform: translateX(-120%) rotate(-6deg);
+    }
+    .on .band {
+      animation: bd .5s .1s cubic-bezier(.2, 1, .3, 1) forwards;
+    }
+    @keyframes bd { to { transform: translateX(0) rotate(-6deg); } }
+    .bgq {
+      position: absolute;
+      font-size: 95cqw;
+      line-height: 1;
+      color: rgba(56, 189, 248, 0.06);
+      right: -6cqw;
+      top: -4cqw;
+      pointer-events: none;
+    }
+    .card {
+      background: var(--surface);
+      color: var(--text);
+      border: .8cqw solid var(--accent);
+      border-radius: 4cqw;
+      padding: 2.5cqh 5cqw;
+      box-shadow: 2cqw 2cqw 0 var(--primary);
+      transform: rotate(-2deg);
+      opacity: 0;
+    }
+    .on .card {
+      animation: cp .45s .65s cubic-bezier(.2, 1.7, .4, 1) forwards;
+    }
+    @keyframes cp { to { opacity: 1; transform: rotate(-2deg); } }
+    /* Emblem Nodo28 */
+    .em {
+      width: 62cqw;
+      height: 62cqw;
+    }
+    .em .box {
+      fill: var(--surface);
+      stroke: var(--primary);
+      stroke-width: 3.5;
+      stroke-dasharray: 380;
+      stroke-dashoffset: 380;
+    }
+    .on .em .box {
+      animation: dr .7s .1s cubic-bezier(.5, 0, .2, 1) forwards;
+    }
+    @keyframes dr { to { stroke-dashoffset: 0; } }
+    .em .edge {
+      stroke: #fff;
+      stroke-width: 5.5;
+      stroke-linecap: round;
+      stroke-dasharray: 60;
+      stroke-dashoffset: 60;
+    }
+    .on .em .edge {
+      animation: dr2 .45s .55s cubic-bezier(.5, 0, .2, 1) forwards;
+    }
+    @keyframes dr2 { to { stroke-dashoffset: 0; } }
+    .em .node {
+      opacity: 0;
+      transform-origin: center;
+      transform: scale(0);
+    }
+    .on .em .node {
+      animation: pp .35s .8s cubic-bezier(.2, 1.7, .4, 1) forwards;
+    }
+    @keyframes pp { to { opacity: 1; transform: scale(1); } }
+    .tag {
+      background: var(--primary);
+      color: #fff;
+      font-size: 11cqw;
+      padding: 1.4cqh 6cqw;
+      border-radius: 2.5cqw;
+      letter-spacing: .04em;
+      box-shadow: 1.5cqw 1.5cqw 0 var(--accent);
+      opacity: 0;
+    }
+    .on .tag {
+      animation: slam .4s 1.05s cubic-bezier(.2, 1.5, .4, 1) forwards;
+    }
+    .pill-wa {
+      background: var(--wa);
+      color: #052e16;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 6.2cqw;
+      padding: 1.6cqh 5cqw;
+      border-radius: 100cqw;
+      opacity: 0;
+      letter-spacing: .02em;
+    }
+    .on .pill-wa {
+      animation: slam .4s 1.05s cubic-bezier(.2, 1.5, .4, 1) forwards;
+    }
+    #go {
+      position: absolute;
+      inset: 0;
+      z-index: 9;
+      background: rgba(11, 18, 32, .88);
+      color: #fff;
+      border: 0;
+      font: inherit;
+      font-size: 9cqw;
+      cursor: pointer;
+    }
+    #bar {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 1.2cqh;
+      background: var(--accent);
+      width: 0;
+      z-index: 5;
+    }
+  </style>
+</head>
+<body>
+  <div id="stage">
+    <div class="sc sc-blue" id="s0">
+      <div class="bgq">28</div>
+      <div class="sm"><span class="w" style="--d:.05s">Bienvenidos a</span></div>
+      <div>
+        <span class="w k" style="--d:.15s;--rot:-5deg">NODO<span class="cyan">28</span></span>
+        <span class="w k2" style="--d:.45s;--rot:3deg;font-size:11cqw;margin-top:1.5cqh">Tu técnico IT</span>
+      </div>
+      <div class="ln"></div>
+    </div>
+
+    <div class="sc" id="s1">
+      <div class="band"></div>
+      <div style="position:relative;z-index:2">
+        <div class="sm"><span class="w" style="--d:.05s">Presencial</span></div>
+        <span class="w k cyan" style="font-size:20cqw;--d:.2s;--rot:4deg">Sabadell</span>
+        <span class="w k2" style="--d:.5s;--rot:-3deg">Hardware y PC</span>
+        <span class="w k2 blue" style="--d:.7s;--rot:2deg;font-size:10.5cqw">C/ Llanera, 28</span>
+      </div>
+      <div class="ln"></div>
+    </div>
+
+    <div class="sc sc-surf" id="s2">
+      <div class="sm"><span class="w" style="--d:.05s">Autónomos y Pymes</span></div>
+      <div>
+        <span class="w k" style="--d:.15s;--rot:-4deg">Sistemas</span>
+        <span class="w k cyan" style="--d:.4s;--rot:4deg">en remoto</span>
+        <span class="w k2" style="--d:.65s;--rot:-2deg;font-size:10.5cqw">Backups · M365 · Redes</span>
+      </div>
+      <div class="ln"></div>
+    </div>
+
+    <div class="sc" id="s3">
+      <svg class="em" viewBox="0 0 100 100" fill="none">
+        <rect class="box" x="6" y="6" width="88" height="88" rx="22" />
+        <path class="edge" d="M32 50 L68 32" />
+        <path class="edge" d="M32 50 L68 68" />
+        <circle class="node" cx="32" cy="50" r="9" fill="#ffffff" />
+        <circle class="node" cx="68" cy="32" r="9" fill="#ffffff" />
+        <circle class="node" cx="68" cy="68" r="9" fill="#38bdf8" />
+      </svg>
+      <div class="tag">NODO<span style="color:#38bdf8">28</span></div>
+    </div>
+
+    <div class="sc sc-blue" id="s4">
+      <div class="sm"><span class="w" style="--d:.05s">Solo con cita previa</span></div>
+      <div class="card" style="font-size:11.5cqw;line-height:1.05">
+        Sin llamadas<br><span class="cyan">100% directo</span>
+      </div>
+      <div class="pill-wa">WhatsApp: 637 663 537</div>
+    </div>
+
+    <div id="bar"></div>
+    <button id="go">▶ Reproduir</button>
+  </div>
+  <script>
+    const S = [...document.querySelectorAll('.sc')],
+      bar = document.getElementById('bar'),
+      go = document.getElementById('go');
+    function show(i) {
+      S.forEach((s, j) => {
+        s.classList.remove('on');
+        if (j === i) {
+          void s.offsetWidth;
+          s.classList.add('on');
+        }
+      });
+    }
+    function play() {
+      go.style.display = 'none';
+      const t0 = performance.now();
+      let cur = -1;
+      (function tick() {
+        const t = (performance.now() - t0) / 1000;
+        const i = Math.min(4, Math.floor(t / 2));
+        if (i !== cur) {
+          cur = i;
+          show(i);
+        }
+        bar.style.width = Math.min(100, t * 10) + '%';
+        if (t < 10) requestAnimationFrame(tick);
+        else {
+          go.style.display = '';
+          go.innerHTML = '↻ Repetir';
+        }
+      })();
+    }
+    go.onclick = play;
+  </script>
+</body>
+</html>

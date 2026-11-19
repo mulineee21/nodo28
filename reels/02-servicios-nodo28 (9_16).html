@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Nodo28 — Servicios en 10s (9:16)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b1220;
+      --bg-soft: #111a2e;
+      --surface: #16223b;
+      --text: #f1f5f9;
+      --primary: #3b82f6;
+      --accent: #38bdf8;
+      --wa: #22c55e;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #000;
+      font-family: 'Anton', 'Impact', sans-serif;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #stage {
+      position: relative;
+      height: min(100vh, 177.78vw);
+      aspect-ratio: 9 / 16;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text);
+      container-type: size;
+    }
+    .sc {
+      position: absolute;
+      inset: 0;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6cqw;
+      gap: 3cqh;
+      text-transform: uppercase;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 35%, rgba(59, 130, 246, 0.18), transparent 60%),
+        var(--bg);
+    }
+    .sc.on {
+      display: flex;
+      animation: zoom .28s cubic-bezier(.2, 1, .3, 1) both;
+    }
+    @keyframes zoom {
+      from { transform: scale(1.65); filter: blur(1.4cqw); opacity: 0; }
+      to { transform: none; filter: none; opacity: 1; }
+    }
+    .sm {
+      font-size: 5.5cqw;
+      letter-spacing: .14em;
+      font-family: 'Archivo Black', sans-serif;
+      color: var(--accent);
+    }
+    .w {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(6cqh) scale(1.4);
+    }
+    .on .w {
+      animation: pop .32s cubic-bezier(.2, 1.6, .4, 1) forwards;
+      animation-delay: var(--d, 0s);
+    }
+    @keyframes pop { to { opacity: 1; transform: none; } }
+    .shk { animation: shake .35s .6s; }
+    @keyframes shake {
+      0%, 100% { transform: none; }
+      25% { transform: translate(-2cqw, 1cqw); }
+      50% { transform: translate(2cqw, -1cqw); }
+      75% { transform: translate(-1cqw, -.5cqw); }
+    }
+    .big2 {
+      background: var(--surface);
+      color: var(--text);
+      border: 1cqw solid var(--accent);
+      border-radius: 5cqw;
+      padding: 3cqh 6cqw;
+      box-shadow: 2.5cqw 2.5cqw 0 var(--primary);
+      transform: rotate(-2deg);
+      white-space: nowrap;
+    }
+    .on .big2 {
+      animation: pop .5s .1s cubic-bezier(.2, 1.7, .4, 1) both;
+    }
+    .num { font-size: 28cqw; line-height: .9; }
+    .mid { font-size: 11cqw; line-height: 1.05; color: var(--accent); }
+    .dots {
+      position: absolute;
+      top: 5cqh;
+      display: flex;
+      gap: 2.5cqw;
+    }
+    .dots i {
+      width: 4.8cqw;
+      height: 4.8cqw;
+      border-radius: 50%;
+      border: .7cqw solid var(--accent);
+      background: transparent;
+    }
+    .dots i.f { background: var(--accent); }
+    .card {
+      position: relative;
+      background: var(--surface);
+      border: 1cqw solid var(--acc, var(--accent));
+      border-radius: 5cqw;
+      box-shadow: 2.8cqw 2.8cqw 0 var(--acc, var(--primary));
+      width: 84cqw;
+      padding: 4cqh 4cqw;
+      opacity: 0;
+      transform: scale(.4) rotate(-8deg);
+    }
+    .on .card {
+      animation: cp .42s .05s cubic-bezier(.2, 1.7, .4, 1) forwards;
+    }
+    @keyframes cp { to { opacity: 1; transform: rotate(var(--r, -2deg)); } }
+    .card .ic {
+      display: block;
+      font-size: 28cqw;
+      line-height: 1.05;
+      animation: bob .5s .4s 2 alternate;
+    }
+    @keyframes bob { to { transform: translateY(-1.5cqh) scale(1.06); } }
+    .card .n {
+      display: block;
+      font-size: 20cqw;
+      line-height: .95;
+      color: var(--acc, var(--accent));
+    }
+    .card .t {
+      display: block;
+      font-size: 13cqw;
+      line-height: .98;
+      margin-top: .8cqh;
+    }
+    .card .s {
+      display: block;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 5cqw;
+      letter-spacing: .04em;
+      margin-top: 1.4cqh;
+      color: #94a3b8;
+    }
+    .tab {
+      position: absolute;
+      left: -2cqw;
+      top: -4.5cqw;
+      background: var(--acc, var(--primary));
+      color: #0b1220;
+      font-size: 6.8cqw;
+      padding: .6cqh 4cqw;
+      border-radius: 2cqw;
+      transform: rotate(-4deg);
+      font-family: 'Archivo Black', sans-serif;
+    }
+    .flash {
+      position: absolute;
+      inset: 0;
+      background: var(--acc, var(--accent));
+      opacity: 0;
+      pointer-events: none;
+    }
+    .on .flash { animation: fl .3s forwards; }
+    @keyframes fl { from { opacity: .35; } to { opacity: 0; } }
+    #go {
+      position: absolute;
+      inset: 0;
+      z-index: 9;
+      background: rgba(11, 18, 32, .88);
+      color: #fff;
+      border: 0;
+      font: inherit;
+      font-size: 9cqw;
+      cursor: pointer;
+    }
+    #bar {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 1.2cqh;
+      background: var(--accent);
+      width: 0;
+      z-index: 5;
+    }
+  </style>
+</head>
+<body>
+  <div id="stage">
+    <div class="sc" id="s0">
+      <div class="sm"><span class="w" style="--d:.05s">Sabadell · Remoto</span></div>
+      <div class="big2">
+        <div class="num shk">NODO<span style="color:var(--accent)">28</span></div>
+        <div class="mid">5 soluciones IT</div>
+      </div>
+    </div>
+
+    <div class="sc" id="s1" style="--acc:var(--accent)">
+      <div class="flash"></div>
+      <div class="dots"><i class="f"></i><i></i><i></i><i></i><i></i></div>
+      <div class="card" style="--r:-2deg">
+        <div class="tab">1</div>
+        <span class="ic">⚡</span>
+        <span class="n">SSD + RAM</span>
+        <span class="t">PC como nuevo</span>
+        <span class="s">Presencial · Sabadell</span>
+      </div>
+    </div>
+
+    <div class="sc" id="s2" style="--acc:var(--primary)">
+      <div class="flash"></div>
+      <div class="dots"><i class="f"></i><i class="f"></i><i></i><i></i><i></i></div>
+      <div class="card" style="--r:2deg">
+        <div class="tab" style="color:#fff">2</div>
+        <span class="ic">🧹</span>
+        <span class="n">Limpieza</span>
+        <span class="t">Pasta térmica</span>
+        <span class="s">Adiós ruido y calor</span>
+      </div>
+    </div>
+
+    <div class="sc" id="s3" style="--acc:var(--accent)">
+      <div class="flash"></div>
+      <div class="dots"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></div>
+      <div class="card" style="--r:-2deg">
+        <div class="tab">3</div>
+        <span class="ic">🛠️</span>
+        <span class="n">Montaje</span>
+        <span class="t">PCs a medida</span>
+        <span class="s">Gaming · Estudio · Trabajo</span>
+      </div>
+    </div>
+
+    <div class="sc" id="s4" style="--acc:var(--primary)">
+      <div class="flash"></div>
+      <div class="dots"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div>
+      <div class="card" style="--r:2deg">
+        <div class="tab" style="color:#fff">4</div>
+        <span class="ic">☁️</span>
+        <span class="n">Sistemas</span>
+        <span class="t">Backups y M365</span>
+        <span class="s">Soporte remoto autónomos</span>
+      </div>
+    </div>
+
+    <div class="sc" id="s5" style="--acc:var(--wa)">
+      <div class="flash"></div>
+      <div class="dots"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></div>
+      <div class="card" style="--r:-2deg">
+        <div class="tab">5</div>
+        <span class="ic">📅</span>
+        <span class="n" style="font-size:15cqw">Cita previa</span>
+        <span class="t" style="font-size:12cqw">637 663 537</span>
+        <span class="s">Solo WhatsApp · nodo28@proton.me</span>
+      </div>
+    </div>
+
+    <div id="bar"></div>
+    <button id="go">▶ Reproduir</button>
+  </div>
+  <script>
+    const S = [...document.querySelectorAll('.sc')],
+      bar = document.getElementById('bar'),
+      go = document.getElementById('go');
+    const DUR = [2, 1.6, 1.6, 1.6, 1.6, 1.6],
+      ST = [];
+    DUR.reduce((a, d, i) => ((ST[i] = a), a + d), 0);
+    function show(i) {
+      S.forEach((s, j) => {
+        s.classList.remove('on');
+        if (j === i) {
+          void s.offsetWidth;
+          s.classList.add('on');
+        }
+      });
+    }
+    function play() {
+      go.style.display = 'none';
+      const t0 = performance.now();
+      let cur = -1;
+      (function tick() {
+        const t = (performance.now() - t0) / 1000;
+        let i = 0;
+        while (i < 5 && t >= ST[i + 1]) i++;
+        if (i !== cur) {
+          cur = i;
+          show(i);
+        }
+        bar.style.width = Math.min(100, t * 10) + '%';
+        if (t < 10) requestAnimationFrame(tick);
+        else {
+          go.style.display = '';
+          go.innerHTML = '↻ Repetir';
+        }
+      })();
+    }
+    go.onclick = play;
+  </script>
+</body>
+</html>
